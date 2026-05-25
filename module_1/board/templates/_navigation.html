@@ -1,0 +1,26 @@
+<nav class="navbar">
+    <ul>
+
+        <li>
+            <a href="{{ url_for('pages.home') }}"
+               class="{% if request.path == '/' %}active{% endif %}">
+               About
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('pages.contact') }}"
+               class="{% if request.path == '/contact' %}active{% endif %}">
+               Contact
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('pages.publications') }}"
+               class="{% if request.path == '/publications' %}active{% endif %}">
+               Publications
+            </a>
+        </li>
+
+    </ul>
+</nav>

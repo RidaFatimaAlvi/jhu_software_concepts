@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+About
+{% endblock title %}
+
+{% block content %}
+
+<div class="bio-section">
+
+    <div class="bio-text">
+
+        <h1>Rida Fatima Alvi</h1>
+
+        <h2>Deloitte Strategy Consultant</h2>
+
+        <p>
+            Rida is an AI Automation & Cyber Analytics SME serving the government public sector at Deloitte.
+            She is an incoming student at the Johns Hopkins University MS in AI program.
+        </p>
+
+        <p>
+            She is also the founder of the Muslim Professionals of Maryland,
+            a networking organization that serves Maryland Muslims with a mission
+            to connect ambition with community.
+        </p>
+
+        <p>
+            She grew up in Annapolis and continues to reside in the DMV.
+            Her personal hobbies include traveling, reading, cooking, and hiking.
+        </p>
+
+    </div>
+
+    <div class="bio-image">
+
+        <img src="{{ url_for('static', filename='rida.jpg') }}"
+             alt="Rida Fatima Alvi"
+             width="350">
+
+    </div>
+
+</div>
+
+{% endblock content %}
