@@ -1,5 +1,8 @@
 Rida Fatima Alvi – Module 1 Flask Website
 
+GitHub Repository SSH URL
+git@github.com:RidaFatimaAlvi/jhu_software_concepts.git
+
 Project Overview
 This project is a personal developer website built using Flask, HTML, CSS, and Jinja templates.
 The website includes:
