@@ -1,46 +1,151 @@
 from urllib import parse, robotparser
+import json
+import time
+
+from bs4 import BeautifulSoup
 
 from selenium import webdriver
-from bs4 import BeautifulSoup
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+BASE_URL = "https://www.thegradcafe.com/"
 
 
 # Confirm robots.txt permits scraping
-agent = "rida"
-base_url = "https://www.thegradcafe.com/"
+def check_robots():
+    agent = "rida"
 
-parser = robotparser.RobotFileParser()
-parser.set_url(parse.urljoin(base_url, "robots.txt"))
-parser.read()
+    parser = robotparser.RobotFileParser()
+    parser.set_url(parse.urljoin(BASE_URL, "robots.txt"))
+    parser.read()
 
-print(parser.can_fetch(agent, base_url))
-
-
-# Use urllib to construct and manage GradCafe URL
-survey_url = parse.urljoin(base_url, "survey")
-
-print(survey_url)
+    return parser.can_fetch(agent, BASE_URL)
 
 
-# Use Selenium to open the page
-driver = webdriver.Chrome()
+def scrape_data():
 
-driver.get(survey_url)
+    driver = webdriver.Chrome()
 
-print(driver.title)
+    wait = WebDriverWait(driver, 10)
+
+    records = []
+    page_num = 1
+
+    while True:
+
+        current_url = parse.urljoin(
+            BASE_URL,
+            f"survey?page={page_num}"
+        )
+
+        print(f"\nProcessing page {page_num}")
+        print(current_url)
+
+        driver.get(current_url)
+
+        # Polite scraping
+        time.sleep(1)
+
+        try:
+            wait.until(
+                EC.presence_of_all_elements_located(
+                    (By.XPATH, "//a[contains(@href, '/result/')]")
+                )
+            )
+        except:
+            print("No more results found.")
+            break
+
+        # Selenium finds result links
+        result_elements = driver.find_elements(
+            By.XPATH,
+            "//a[contains(@href, '/result/')]"
+        )
+
+        page_records = 0
+
+        for element in result_elements:
+
+            full_url = element.get_attribute("href")
+
+            if full_url:
+
+                records.append({
+                    "program_name": None,
+                    "university": None,
+                    "comments": None,
+                    "date_added": None,
+                    "url": full_url,
+                    "applicant_status": None,
+                    "acceptance_date": None,
+                    "rejection_date": None,
+                    "start_term": None,
+                    "student_type": None,
+                    "gre_score": None,
+                    "gre_v": None,
+                    "degree": None,
+                    "gpa": None,
+                    "gre_aw": None,
+                    "raw_text": None
+                })
+
+                page_records += 1
+
+        # Assignment requires page_source + BeautifulSoup
+        html = driver.page_source
+        soup = BeautifulSoup(html, "html.parser")
+
+        print(f"Found {page_records} records on page {page_num}")
+
+        if page_records == 0:
+            print("No records found. Ending scrape.")
+            break
+
+        # TEST LIMIT - REMOVE LATER
+        if page_num >= 3:
+            print("Stopping test run after page 3.")
+            break
+
+        page_num += 1
+
+    driver.quit()
+
+    return records
 
 
-# Extract rendered HTML using Selenium page_source
-html = driver.page_source
-
-print(type(html))
-print(html[:500])
+def clean_data(records):
+    return records
 
 
-# Parse rendered HTML with BeautifulSoup
-soup = BeautifulSoup(html, "html.parser")
-
-print(type(soup))
-print(soup.title.text)
+def save_data(data, filename):
+    with open(filename, "w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4)
 
 
-driver.quit()
+def load_data(filename):
+    with open(filename, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+print("Robots Allowed:", check_robots())
+
+# Use urllib to construct and manage URLs
+survey_url = parse.urljoin(BASE_URL, "survey")
+
+parsed_url = parse.urlparse(survey_url)
+
+print("Scheme:", parsed_url.scheme)
+print("Domain:", parsed_url.netloc)
+print("Path:", parsed_url.path)
+
+records = scrape_data()
+
+cleaned_records = clean_data(records)
+
+if len(cleaned_records) > 0:
+    print(cleaned_records[0]["url"])
+
+save_data(cleaned_records, "applicant_data.json")
+
+print(f"\nSaved {len(cleaned_records)} records.")
