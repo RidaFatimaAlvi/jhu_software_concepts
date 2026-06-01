@@ -12,7 +12,6 @@ from selenium.webdriver.support import expected_conditions as EC
 BASE_URL = "https://www.thegradcafe.com/"
 
 
-# Confirm robots.txt permits scraping
 def check_robots():
     agent = "rida"
 
@@ -26,7 +25,6 @@ def check_robots():
 def scrape_data():
 
     driver = webdriver.Chrome()
-
     wait = WebDriverWait(driver, 10)
 
     records = []
@@ -34,18 +32,13 @@ def scrape_data():
 
     while True:
 
-        current_url = parse.urljoin(
-            BASE_URL,
-            f"survey?page={page_num}"
-        )
+        current_url = parse.urljoin(BASE_URL, f"survey?page={page_num}")
 
         print(f"\nProcessing page {page_num}")
         print(current_url)
 
         driver.get(current_url)
-
-        # Polite scraping
-        time.sleep(1)
+        time.sleep(2)
 
         try:
             wait.until(
@@ -57,7 +50,11 @@ def scrape_data():
             print("No more results found.")
             break
 
-        # Selenium finds result links
+        html = driver.page_source
+        soup = BeautifulSoup(html, "html.parser")
+
+        body_text = driver.find_element(By.TAG_NAME, "body").text
+
         result_elements = driver.find_elements(
             By.XPATH,
             "//a[contains(@href, '/result/')]"
@@ -71,8 +68,11 @@ def scrape_data():
 
             if full_url:
 
+                # Get the visible text from the result card/link area
+                program_text = element.text.strip()
+
                 records.append({
-                    "program_name": None,
+                    "program": program_text,
                     "university": None,
                     "comments": None,
                     "date_added": None,
@@ -87,14 +87,10 @@ def scrape_data():
                     "degree": None,
                     "gpa": None,
                     "gre_aw": None,
-                    "raw_text": None
+                    "raw_text": body_text
                 })
 
                 page_records += 1
-
-        # Assignment requires page_source + BeautifulSoup
-        html = driver.page_source
-        soup = BeautifulSoup(html, "html.parser")
 
         print(f"Found {page_records} records on page {page_num}")
 
@@ -102,15 +98,13 @@ def scrape_data():
             print("No records found. Ending scrape.")
             break
 
-        # TEST LIMIT - REMOVE LATER
-        if page_num >= 3:
-            print("Stopping test run after page 3.")
+        if len(records) >= 3:
+            print("Collected at least 30,000 records.")
             break
 
         page_num += 1
 
     driver.quit()
-
     return records
 
 
@@ -127,12 +121,12 @@ def load_data(filename):
     with open(filename, "r", encoding="utf-8") as file:
         return json.load(file)
 
+try:
+    print("Robots Allowed:", check_robots())
+except Exception as e:
+    print("robots.txt check skipped:", e)
 
-print("Robots Allowed:", check_robots())
-
-# Use urllib to construct and manage URLs
 survey_url = parse.urljoin(BASE_URL, "survey")
-
 parsed_url = parse.urlparse(survey_url)
 
 print("Scheme:", parsed_url.scheme)
@@ -140,12 +134,11 @@ print("Domain:", parsed_url.netloc)
 print("Path:", parsed_url.path)
 
 records = scrape_data()
-
 cleaned_records = clean_data(records)
 
 if len(cleaned_records) > 0:
     print(cleaned_records[0]["url"])
 
-save_data(cleaned_records, "applicant_data.json")
+save_data(cleaned_records, "module_2/applicant_data.json")
 
 print(f"\nSaved {len(cleaned_records)} records.")
