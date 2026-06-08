@@ -1,0 +1,8 @@
+*.gguf
+module_2.applicant_data_for_llm.json
+moduel_3/applicant_data_for_llm.json
+module_3/llm_hosting/models/
+.DS_Store
+*.jsonl
+*_test.json
+*.log

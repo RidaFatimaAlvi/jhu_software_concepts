@@ -1,0 +1,6 @@
+Flask>=2.3,<4
+psycopg>=3.0
+selenium>=4.0
+beautifulsoup4>=4.0
+huggingface_hub>=0.23.0
+llama-cpp-python>=0.2.90,<0.3.0

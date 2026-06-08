@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - Grad School Cafe Data Analysis</title>
+
+    <style>
+        nav a {
+            color: #607d8b;
+            font-size: 1em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        .question {
+            padding: 20px;
+            margin: 10px;
+            background-color: #f7f4f4;
+        }
+
+        .message {
+            padding: 15px;
+            margin: 10px;
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Grad School Cafe Data Analysis</a>
+    </nav>
+
+    <hr>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
