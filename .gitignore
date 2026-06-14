@@ -1,6 +1,9 @@
 venv/
 __pycache__/
-.DS_Store*.gguf
+.DS_Store
+.coverage
+.pytest_cache/
+*.gguf
 module_3/llm_hosting/models/
 module_3/applicant_data.json
 module_3/applicant_data.json

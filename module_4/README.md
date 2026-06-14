@@ -68,10 +68,7 @@ make html
 Open `module_4/docs/build/html/index.html` after the build finishes.
 
 Published documentation:
-<https://jhu-software-concepts.readthedocs.io/en/latest/>
-
-If Read the Docs assigns a different project slug during import, replace this
-URL with the URL shown on the successful Read the Docs build page.
+<https://rida-jhu-software-concepts.readthedocs.io/en/latest/>
 
 ## Continuous Integration
 

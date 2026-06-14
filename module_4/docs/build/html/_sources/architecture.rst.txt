@@ -39,16 +39,21 @@ Database Layer
    values, inserts rows transactionally, and ignores duplicate URLs.
 
 ``src.query_data``
-   Reads applicant dictionaries and computes the analysis answers used by the
-   Flask template.
+   Provides reusable functions that read applicant dictionaries and return the
+   analysis answer keys expected by the Flask template. The current Flask route
+   executes equivalent SQL directly.
 
 Data Flow
 ---------
 
-The normal flow is:
+The application contains these ETL stages:
 
 #. ``scrape_data`` collects raw records.
 #. ``clean_records`` converts raw text to structured records.
 #. ``load_records`` writes unique records to PostgreSQL.
 #. Analysis queries read the stored rows.
 #. Flask renders the results in ``src/templates/index.html``.
+
+``src.pull_data.pull_data`` currently coordinates the scraper and loader
+directly. Structured or cleaned records must therefore be supplied to the
+loader; cleaning is also available separately through ``src.clean``.

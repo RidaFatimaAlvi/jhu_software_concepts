@@ -1,6 +1,7 @@
 """Tests for the Flask application and Analysis page."""
 
 import pytest
+from bs4 import BeautifulSoup
 from flask import Flask
 
 
@@ -20,11 +21,18 @@ def test_create_app(app):
 @pytest.mark.web
 def test_analysis_page(client):
     response = client.get("/analysis")
+    page = BeautifulSoup(response.data, "html.parser")
+    page_text = page.get_text(" ", strip=True)
 
     assert response.status_code == 200
-    assert b"Analysis" in response.data
-    assert b"Pull Data" in response.data
-    assert b"Update Analysis" in response.data
-    assert b"Answer:" in response.data
-    assert b'data-testid="pull-data-btn"' in response.data
-    assert b'data-testid="update-analysis-btn"' in response.data
+    assert page.find("h1").get_text(strip=True) == "Analysis"
+    assert "Answer:" in page_text
+
+    pull_button = page.find("button", {"data-testid": "pull-data-btn"})
+    update_button = page.find(
+        "button",
+        {"data-testid": "update-analysis-btn"},
+    )
+
+    assert pull_button.get_text(strip=True) == "Pull Data"
+    assert update_button.get_text(strip=True) == "Update Analysis"

@@ -116,14 +116,15 @@ structure.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">src.load_data</span></code></dt><dd><p>Creates the <code class="docutils literal notranslate"><span class="pre">applicants</span></code> table, validates required fields, normalizes
 values, inserts rows transactionally, and ignores duplicate URLs.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">src.query_data</span></code></dt><dd><p>Reads applicant dictionaries and computes the analysis answers used by the
-Flask template.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">src.query_data</span></code></dt><dd><p>Provides reusable functions that read applicant dictionaries and return the
+analysis answer keys expected by the Flask template. The current Flask route
+executes equivalent SQL directly.</p>
 </dd>
 </dl>
 </section>
 <section id="data-flow">
 <h2>Data Flow<a class="headerlink" href="#data-flow" title="Link to this heading"></a></h2>
-<p>The normal flow is:</p>
+<p>The application contains these ETL stages:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">scrape_data</span></code> collects raw records.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clean_records</span></code> converts raw text to structured records.</p></li>
@@ -131,6 +132,9 @@ Flask template.</p>
 <li><p>Analysis queries read the stored rows.</p></li>
 <li><p>Flask renders the results in <code class="docutils literal notranslate"><span class="pre">src/templates/index.html</span></code>.</p></li>
 </ol>
+<p><code class="docutils literal notranslate"><span class="pre">src.pull_data.pull_data</span></code> currently coordinates the scraper and loader
+directly. Structured or cleaned records must therefore be supplied to the
+loader; cleaning is also available separately through <code class="docutils literal notranslate"><span class="pre">src.clean</span></code>.</p>
 </section>
 </section>
 
