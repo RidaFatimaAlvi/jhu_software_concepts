@@ -70,6 +70,29 @@ Open `module_4/docs/build/html/index.html` after the build finishes.
 Published documentation:
 <https://rida-jhu-software-concepts.readthedocs.io/en/latest/>
 
+## Limitations
+
+- The scraper depends on the current Grad Cafe page structure and a local
+  Chrome/Selenium installation. Website changes may require updates to the
+  selectors.
+- Live scraping can be slow because each page includes a delay. Tests therefore
+  use fake scraper and browser objects instead of accessing the internet.
+- The busy state is stored in one in-memory Boolean. It works for this
+  single-process application but would not coordinate multiple server
+  processes.
+- The background pull command depends on the application's working directory
+  and available `python` executable.
+- Cleaning is provided as a separate ETL step. The pull helper currently passes
+  scraper output directly to the loader, so production input must already
+  contain the required database fields.
+- Duplicate detection uses the record URL as the uniqueness key. Records with
+  different URLs but otherwise identical data are not treated as duplicates.
+- The Analysis page requires a running PostgreSQL database and does not
+  currently provide a user-friendly page when the database is unavailable.
+- Grad Cafe records are self-reported and may contain missing or inconsistent
+  values, so the displayed analysis should not be treated as verified
+  admissions data.
+
 ## Continuous Integration
 
 The workflow in `.github/workflows/tests.yml` starts PostgreSQL and runs the
