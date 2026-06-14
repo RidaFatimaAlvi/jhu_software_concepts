@@ -3,6 +3,9 @@
 This module contains the Flask, ETL, PostgreSQL, Pytest, CI, and Sphinx work
 for the Grad Cafe analytics application.
 
+Repository SSH URL:
+`git@github.com:RidaFatimaAlvi/jhu_software_concepts.git`
+
 ## Project Structure
 
 ```text
