@@ -26,3 +26,5 @@ def test_analysis_page(client):
     assert b"Pull Data" in response.data
     assert b"Update Analysis" in response.data
     assert b"Answer:" in response.data
+    assert b'data-testid="pull-data-btn"' in response.data
+    assert b'data-testid="update-analysis-btn"' in response.data

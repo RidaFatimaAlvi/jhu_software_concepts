@@ -19,11 +19,11 @@ Analysis
     </p>
 
     <form action="{{ url_for('pull_data') }}" method="POST" style="display: inline;">
-        <button type="submit">Pull Data</button>
+        <button type="submit" data-testid="pull-data-btn">Pull Data</button>
     </form>
 
     <form action="{{ url_for('update_analysis') }}" method="POST" style="display: inline; float: right;">
-        <button type="submit">Update Analysis</button>
+        <button type="submit" data-testid="update-analysis-btn">Update Analysis</button>
     </form>
 </div>
 
