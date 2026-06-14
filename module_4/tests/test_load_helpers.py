@@ -45,6 +45,7 @@ def test_required_fields():
 @pytest.mark.parametrize("module", [load_data, query_data])
 def test_database_connection(module, monkeypatch):
     calls = []
+    monkeypatch.delenv("DATABASE_URL", raising=False)
     monkeypatch.setattr(
         module.psycopg,
         "connect",
