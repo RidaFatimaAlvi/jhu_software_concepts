@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Analysis
+{% endblock %}
+
+{% block content %}
+
+<h1>Analysis</h1>
+
+<div class="question">
+    <h3>Data Controls</h3>
+
+    <p>
+        <em>
+            Pull Data scrapes new GradCafe data and adds it to the database.
+            Update Analysis refreshes this page using the most current database results.
+        </em>
+    </p>
+
+    <form action="{{ url_for('pull_data') }}" method="POST" style="display: inline;">
+        <button type="submit" data-testid="pull-data-btn">Pull Data</button>
+    </form>
+
+    <form action="{{ url_for('update_analysis') }}" method="POST" style="display: inline; float: right;">
+        <button type="submit" data-testid="update-analysis-btn">Update Analysis</button>
+    </form>
+</div>
+
+<div class="question">
+    <h3>How many entries do you have in your database who have applied for Fall 2026?</h3>
+    <p><em>Answer: Applicant count: {{ q1 }}</em></p>
+</div>
+
+<div class="question">
+    <h3>What percentage of entries are from International students (not American or Other) (to two decimal places)?</h3>
+    <p><em>Answer: Percent International: {{ "%.2f"|format(q2) }}%</em></p>
+</div>
+
+<div class="question">
+    <h3>What is the average GPA, GRE, GRE V, GRE AW of applicants who provided these metrics?</h3>
+    <p>
+        <em>
+            Answer: Average GPA: {{ q3[0] }},
+            Average GRE: {{ q3[1] }},
+            Average GRE V: {{ q3[2] }},
+            Average GRE AW: {{ q3[3] }}
+        </em>
+    </p>
+</div>
+
+<div class="question">
+    <h3>What is the average GPA of American students in Fall 2026?</h3>
+    <p><em>Answer: Average GPA American: {{ q4 }}</em></p>
+</div>
+
+<div class="question">
+    <h3>What percent of entries for Fall 2026 are Acceptances (to two decimal places)?</h3>
+    <p><em>Answer: Acceptance percent: {{ "%.2f"|format(q5) }}%</em></p>
+</div>
+
+<div class="question">
+    <h3>What is the average GPA of applicants who applied for Fall 2026 who are Acceptances?</h3>
+    <p><em>Answer: Average GPA Acceptance: {{ q6 }}</em></p>
+</div>
+
+<div class="question">
+    <h3>How many entries are from applicants who applied to JHU for a Masters degree in Computer Science?</h3>
+    <p><em>Answer: {{ q7 }}</em></p>
+</div>
+
+<div class="question">
+    <h3>How many 2026 acceptances are from applicants who applied to Georgetown, MIT, Stanford, or Carnegie Mellon for a PhD in Computer Science using downloaded fields?</h3>
+    <p><em>Answer: {{ q8 }}</em></p>
+</div>
+
+<div class="question">
+    <h3>Do the numbers change when using LLM-generated fields instead of downloaded fields?</h3>
+    <p><em>Answer: {{ q9 }}</em></p>
+</div>
+
+<div class="question">
+    <h3>Which universities receive the most applications?</h3>
+
+    <p><em>Answer:</em></p>
+
+    {% for university in q10 %}
+        <p>
+            <em>{{ university[0] }}: {{ university[1] }}</em>
+        </p>
+    {% endfor %}
+</div>
+
+<div class="question">
+    <h3>Which degree type has the highest average GPA?</h3>
+
+    <p>
+        <em>
+            Answer: {{ q11[0] }} with an average GPA of {{ q11[1] }}
+        </em>
+    </p>
+</div>
+
+{% endblock %}

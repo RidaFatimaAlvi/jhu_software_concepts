@@ -1,0 +1,584 @@
+
+Testing /Users/ridafatimaalvi/Documents/jhu_software_concepts/module_5 ...
+
+Open Issues
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 062ba716-e580-489a-a5c0-20f5316d3b73
+   Path: .venv/lib/python3.12/site-packages/_pytest/tmpdir.py, line 156
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 038729f4-9041-40a8-8a29-9a946a6d4439
+   Path: .venv/lib/python3.12/site-packages/trio/_tools/mypy_annotate.py, line 122
+   Info: Unsanitized input from a command line argument flows into pickle.dump, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Insufficient postMessage Validation
+   Finding ID: 71da77f1-18bf-49ec-b852-9c484c73e104
+   Path: .venv/lib/python3.12/site-packages/urllib3/contrib/emscripten/emscripten_fetch_worker.js, line 12
+   Info: The origin of the received message is not checked. This means any site (even malicious) can send message to this window. If you don't expect this, consider checking the origin of sender.
+
+ ✗ [LOW] Code Injection
+   Finding ID: fa589ba3-87a3-4d37-a0e4-259b4122e22f
+   Path: .venv/lib/python3.12/site-packages/_pytest/config/__init__.py, line 860
+   Info: Unsanitized input from an environment variable flows into __import__, where it is executed as Python code. This may result in a Code Injection vulnerability.
+
+ ✗ [LOW] Code Injection
+   Finding ID: ac2c423f-31ea-4983-abaa-cb9bcbf2682e
+   Path: .venv/lib/python3.12/site-packages/_pytest/config/__init__.py, line 833
+   Info: Unsanitized input from an environment variable flows into __import__, where it is executed as Python code. This may result in a Code Injection vulnerability.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 8189ed8d-55d1-425d-be11-2eb34b28b252
+   Path: .venv/lib/python3.12/site-packages/trio/_tests/check_type_completeness.py, line 174
+   Info: Unsanitized input from a command line argument flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 7c30a879-7486-41af-9ab3-3de70276f036
+   Path: .venv/lib/python3.12/site-packages/dill/_objects.py, line 467
+   Info: hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 3596a363-aa79-468f-8916-7edcffb357f0
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/requests/auth.py, line 148
+   Info: hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: e23152db-90c7-43a6-97f9-d28c04f350fa
+   Path: .venv/lib/python3.12/site-packages/selenium/webdriver/remote/shadowroot.py, line 44
+   Info: hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: eb4dd60b-38da-458b-ac9f-a86aa95b675e
+   Path: .venv/lib/python3.12/site-packages/selenium/webdriver/remote/webelement.py, line 559
+   Info: hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: ced0bc0f-4082-4913-a3fd-689273e943e7
+   Path: .venv/lib/python3.12/site-packages/flask/sessions.py, line 281
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 28ca9bd7-3603-46cf-9d59-ae630216ad16
+   Path: .venv/lib/python3.12/site-packages/itsdangerous/signer.py, line 45
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 33fa4a33-6dc5-42ad-8dc8-23a58f4f3a76
+   Path: .venv/lib/python3.12/site-packages/jinja2/bccache.py, line 161
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 5e1da991-739f-4ddf-84c6-c17dd94d51dc
+   Path: .venv/lib/python3.12/site-packages/jinja2/bccache.py, line 165
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 961b0fa7-52a9-49e6-aec4-ce248810c504
+   Path: .venv/lib/python3.12/site-packages/jinja2/loaders.py, line 661
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: bcd9d43f-a321-4fcf-bc49-2598d5d885d2
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/requests/auth.py, line 156
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: ca21fbdf-9a2d-4331-af9e-3f5dfc600ed4
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/requests/auth.py, line 205
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 04056c84-7d61-49ba-a73b-6de1a358955e
+   Path: .venv/lib/python3.12/site-packages/websocket/_handshake.py, line 200
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 6c12dbd0-777e-4ca3-9df2-bcb79541618f
+   Path: .venv/lib/python3.12/site-packages/werkzeug/debug/__init__.py, line 45
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 61643c0c-90a8-41f3-bf5b-cb6fc9195c2c
+   Path: .venv/lib/python3.12/site-packages/werkzeug/debug/__init__.py, line 205
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: c286c271-5246-4821-9e89-cfcab8eff586
+   Path: .venv/lib/python3.12/site-packages/werkzeug/debug/__init__.py, line 211
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: 6e3fd58f-3991-4d13-b85d-9b8936896211
+   Path: .venv/lib/python3.12/site-packages/werkzeug/http.py, line 1019
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Use of Password Hash With Insufficient Computational Effort
+   Finding ID: d2d3cb28-66be-4dd2-97cd-e28f91ebf53b
+   Path: .venv/lib/python3.12/site-packages/wsproto/utilities.py, line 92
+   Info: hashlib.sha1 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [LOW] Insecure Temporary File
+   Finding ID: 94d06d69-5e94-4053-952d-0e8cac4f7572
+   Path: .venv/lib/python3.12/site-packages/trio/_tests/test_highlevel_open_unix_stream.py, line 49
+   Info: Use of tempfile.mktemp is deprecated and poses a security risk
+
+ ✗ [LOW] Insecure Temporary File
+   Finding ID: 82ed9a1e-a8b2-4b72-83bb-90bee30b483d
+   Path: .venv/lib/python3.12/site-packages/trio/_tests/test_highlevel_open_unix_stream.py, line 57
+   Info: Use of tempfile.mktemp is deprecated and poses a security risk
+
+ ✗ [LOW] Path Traversal
+   Finding ID: e0ee5cbb-a63e-40dd-bf12-f0a3a86f49d2
+   Path: .venv/lib/python3.12/site-packages/trio/_tools/mypy_annotate.py, line 102
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: c1e2f546-c357-40ae-85d2-4d421b822a0b
+   Path: .venv/lib/python3.12/site-packages/trio/_tests/check_type_completeness.py, line 190
+   Info: Unsanitized input from a command line argument flows into json.dump, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: ad71615c-184c-47f8-85d8-a0e0b6ac2209
+   Path: .venv/lib/python3.12/site-packages/trio/_tests/check_type_completeness.py, line 131
+   Info: Unsanitized input from a command line argument flows into json.dump, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 0caac8c2-f6ed-4b54-824c-766c94e63e0b
+   Path: .venv/lib/python3.12/site-packages/_pytest/tmpdir.py, line 182
+   Info: Unsanitized input from an environment variable flows into os.chmod, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to manipulate arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 20ea07ae-378e-47b9-bbba-77c0968e028b
+   Path: .venv/lib/python3.12/site-packages/_pytest/_py/path.py, line 1426
+   Info: Unsanitized input from an environment variable flows into os.unlink, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to remove arbitrary files.
+
+ ✗ [LOW] Insufficient postMessage Validation
+   Finding ID: 1604224d-cb80-4c4d-8b1c-fa38cdb38b4a
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/emscripten/emscripten_fetch_worker.js, line 12
+   Info: The origin of the received message is not checked. This means any site (even malicious) can send message to this window. If you don't expect this, consider checking the origin of sender.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 514fc12c-a3b1-424d-b07a-22c125282bbe
+   Path: .venv/lib/python3.12/site-packages/sphinx/theming.py, line 542
+   Info: Unsanitized input from a command line argument flows into path concatenation, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: ba1efab7-4d7f-4288-aa1b-91f4a13b5e16
+   Path: .venv/lib/python3.12/site-packages/sphinx/ext/autosummary/generate.py, line 938
+   Info: Unsanitized input from a command line argument flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to remove arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 52d1eaf3-c3c7-467e-b2b9-c9e9e1abf58e
+   Path: .venv/lib/python3.12/site-packages/platformdirs/unix.py, line 303
+   Info: Unsanitized input from an environment variable flows into path concatenation, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: e17cecc9-f70f-4585-a6ec-9eed389116ef
+   Path: .venv/lib/python3.12/site-packages/sphinx/ext/autosummary/generate.py, line 661
+   Info: Unsanitized input from a command line argument flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Binding to all network interfaces may open service to unintended traffic
+   Finding ID: 9a24462b-237f-4abe-a0e8-1ea4a5e51e5b
+   Path: .venv/lib/python3.12/site-packages/trio/_tests/test_fakenet.py, line 303
+   Info: Using bind in bind makes it listen on all network interfaces, which may open the service to unintended traffic.
+
+ ✗ [LOW] Binding to all network interfaces may open service to unintended traffic
+   Finding ID: 18a3cd53-6c9d-4a32-a964-89023e7f3bfe
+   Path: .venv/lib/python3.12/site-packages/trio/_tests/test_testing.py, line 647
+   Info: Using bind in bind makes it listen on all network interfaces, which may open the service to unintended traffic.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 6679ef3f-0496-406d-994f-3ed2ffefb47a
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py, line 357
+   Info: Unsanitized input from a command line argument flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Use of Hardcoded Credentials
+   Finding ID: 831200ce-cc87-4f85-8e29-ec63b16ccb29
+   Path: .venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py, line 468
+   Info: Do not hardcode credentials in code. Found hardcoded credential used in here.
+
+ ✗ [LOW] Use of Hardcoded Credentials
+   Finding ID: 3307ee16-db2b-4187-ae69-8bfde1b56cf5
+   Path: .venv/lib/python3.12/site-packages/_pytest/_py/path.py, line 1421
+   Info: Do not hardcode credentials in code. Found hardcoded credential used in here.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 27a2e22f-845c-4ea2-bf76-a1d1bf1400f3
+   Path: .venv/lib/python3.12/site-packages/PIL/IcnsImagePlugin.py, line 397
+   Info: Unsanitized input from a command line argument flows into os.remove, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to remove arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 25606970-7d5d-4d37-b9aa-bcf846d0977c
+   Path: .venv/lib/python3.12/site-packages/PIL/ImageFont.py, line 274
+   Info: Unsanitized input from an environment variable flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: ab18290c-6c29-4346-a341-a70f2b27b07d
+   Path: .venv/lib/python3.12/site-packages/flask/cli.py, line 1030
+   Info: Unsanitized input from an environment variable flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 593b3eeb-f752-4257-ab60-a9338c896480
+   Path: .venv/lib/python3.12/site-packages/flask/config.py, line 208
+   Info: Unsanitized input from an environment variable flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 04d65057-7a38-449c-bf2e-d162c5ce98de
+   Path: .venv/lib/python3.12/site-packages/pylint/pyreverse/utils.py, line 41
+   Info: Unsanitized input from an environment variable flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: ac7be5e7-b68b-4639-a4ad-ec9366cf01fd
+   Path: .venv/lib/python3.12/site-packages/PIL/ImageFont.py, line 904
+   Info: Unsanitized input from an environment variable flows into os.walk, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 675b8978-8fe8-4a7b-92cd-f484f3ec227d
+   Path: .venv/lib/python3.12/site-packages/PIL/SpiderImagePlugin.py, line 89
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: fe90c69f-dec1-4afb-aeed-d06fe97f4e7d
+   Path: .venv/lib/python3.12/site-packages/mccabe.py, line 300
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: e33d2a77-f50f-4ef1-b889-cf2e5ee254d3
+   Path: .venv/lib/python3.12/site-packages/sphinx/ext/autosummary/generate.py, line 707
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: f4f34395-0b8f-4ad7-8d07-326540c2a2c4
+   Path: .venv/lib/python3.12/site-packages/mccabe.py, line 311
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: e3760ced-8e0d-48d9-b6c8-9eab9533c721
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py, line 37
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: d93a8eb4-1aa4-4336-bc80-b0368a386790
+   Path: .venv/lib/python3.12/site-packages/pygments/cmdline.py, line 351
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: f8d26469-8a90-4d35-99f0-ea49efe50412
+   Path: .venv/lib/python3.12/site-packages/sphinx/cmd/quickstart.py, line 479
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 1744bff0-1be8-45eb-91bb-bb0356e8bfcd
+   Path: .venv/lib/python3.12/site-packages/sphinx/ext/autosummary/generate.py, line 603
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: cbe9ecb7-bf02-48ad-a392-fcb259319512
+   Path: .venv/lib/python3.12/site-packages/mccabe.py, line 309
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 843cf4be-7050-4d25-ba69-3bf4140a110b
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/rich/json.py, line 134
+   Info: Unsanitized input from a command line argument flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 9f0eed08-89f8-40cf-a47b-8062ad7de35a
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/prepstyles.py, line 32
+   Info: Unsanitized input from a command line argument flows into zipfile.ZipFile, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: ab99b661-f5b0-464c-a2e1-0eccc3bfdbf0
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/prepstyles.py, line 64
+   Info: Unsanitized input from a command line argument flows into shutil.move, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 10cdf075-0663-4fba-938a-4732a09ef3a3
+   Path: .venv/lib/python3.12/site-packages/isort/main.py, line 96
+   Info: Unsanitized input from a command line argument flows into shutil.copymode, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to manipulate arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 3d37b202-7242-40c3-be50-1e56cbe8ef26
+   Path: .venv/lib/python3.12/site-packages/sphinx/ext/autosummary/generate.py, line 674
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 81c71a8b-c92c-4923-b5e0-e833de8b4afb
+   Path: .venv/lib/python3.12/site-packages/isort/main.py, line 1115
+   Info: Unsanitized input from a command line argument flows into os.walk, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 369bb06c-2096-4604-92e0-0d5c550790a2
+   Path: .venv/lib/python3.12/site-packages/isort/main.py, line 1181
+   Info: Unsanitized input from a command line argument flows into os.walk, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: a65a3fbc-ffbc-4f81-815f-cc35440e227a
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py, line 48
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: e1075c04-d2d2-439f-b134-3a2797105e46
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py, line 79
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: b6c22b60-f118-4dd9-b7d0-94921884e834
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py, line 110
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: b90af21f-f9d6-4d93-9b17-e0372dface4f
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py, line 126
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: e42fc903-7230-415f-9a36-8bad0dc67ca1
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py, line 134
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 8fd561ec-2590-43d7-8958-91d168350c8d
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py, line 185
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: a479124a-736a-4af1-b345-f8cfb987d5b2
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py, line 207
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 3ffac2a8-1d89-4783-931b-a2fad78ccf91
+   Path: .venv/lib/python3.12/site-packages/platformdirs/windows.py, line 48
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 2bb724b7-790c-4425-ab58-36f7a0e2612d
+   Path: .venv/lib/python3.12/site-packages/platformdirs/windows.py, line 95
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 14a72b56-e942-4712-93ea-a85425a8f51c
+   Path: .venv/lib/python3.12/site-packages/platformdirs/windows.py, line 104
+   Info: Unsanitized input from an environment variable flows into pathlib.Path, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 4c83b609-b01a-4a2b-93ab-d480c6ca8fc7
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py, line 33
+   Info: Unsanitized input from a command line argument flows into json.dump, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 254bea95-67cc-4a0c-8d7c-689caa3e4237
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/rich/emoji.py, line 91
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [LOW] Path Traversal
+   Finding ID: 1b5ddd4c-3218-4fd7-9840-013461938aa8
+   Path: .venv/lib/python3.12/site-packages/sphinx/cmd/quickstart.py, line 468
+   Info: Unsanitized input from a command line argument flows into open, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [MEDIUM] Arbitrary File Write via Archive Extraction (Tar Slip)
+   Finding ID: 5ddb2de3-e567-48ff-9f75-eb9f6e6dd1b6
+   Path: .venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py, line 3302
+   Info: Unsanitized input from an opened tar file flows into extractall, where it is used to extract files from a tar archive. This may result files outside destination directory to be overwritten, resulting in an arbitrary file write.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: b23e4aa8-b80a-4b60-8956-cec855e13408
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/__init__.py, line 2631
+   Info: xml.etree.ElementTree.fromstring is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: 5d7d299d-2b20-44a0-90a2-0f6f1f8949ef
+   Path: .venv/lib/python3.12/site-packages/sphinx/ext/graphviz.py, line 242
+   Info: xml.etree.ElementTree.parse is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: 06de29c6-36ec-4ff2-8998-9f90fba3984b
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/prepstyles.py, line 37
+   Info: xml.etree.ElementTree.iterparse is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: b1ee37b7-b0bf-49c6-86d4-23bd2af6aa04
+   Path: .venv/lib/python3.12/site-packages/selenium/webdriver/firefox/firefox_profile.py, line 298
+   Info: xml.dom.minidom.parseString is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Arbitrary File Write via Archive Extraction (Tar Slip)
+   Finding ID: 6e4fec6b-edf7-48b0-8417-6369dbc2f0ad
+   Path: .venv/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py, line 1577
+   Info: Unsanitized input from an opened tar file flows into extractall, where it is used to extract files from a tar archive. This may result files outside destination directory to be overwritten, resulting in an arbitrary file write.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: bd56b8fb-6f5f-4549-a7eb-5f9af562ab4f
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/docutils_xml.py, line 75
+   Info: xml.sax.make_parser is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: 8cf288af-79ba-48bb-a6e5-f54f35cf1d63
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/__init__.py, line 2853
+   Info: xml.etree.ElementTree.fromstring is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Arbitrary File Write via Archive Extraction (Tar Slip)
+   Finding ID: 37f2a3e5-4332-4188-afba-f235e52ee3f2
+   Path: .venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py, line 3304
+   Info: Unsanitized input from an opened tar file flows into extractall, where it is used to extract files from a tar archive. This may result files outside destination directory to be overwritten, resulting in an arbitrary file write.
+
+ ✗ [MEDIUM] Code Injection
+   Finding ID: 5814522a-92cf-4c17-bf48-07e4da2bfe83
+   Path: .venv/lib/python3.12/site-packages/flask/config.py, line 209
+   Info: Unsanitized input from an environment variable flows into exec, where it is executed as Python code. This may result in a Code Injection vulnerability.
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: 22add54a-0eca-46ed-9db0-b80a62b19543
+   Path: .venv/lib/python3.12/site-packages/werkzeug/debug/shared/debugger.js, line 273
+   Info: Unsanitized input from data from a remote resource flows into innerHTML, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: 98410a63-1edf-46fd-a077-d7afcb8cfe17
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/__init__.py, line 946
+   Info: xml.etree.ElementTree.fromstring is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: 29aac611-3a86-4ef7-a080-797d930626c6
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/__init__.py, line 941
+   Info: xml.etree.ElementTree.fromstring is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: 390124b7-7ca9-4972-902c-29db2a7480be
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/__init__.py, line 940
+   Info: xml.etree.ElementTree.fromstring is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Deserialization of Untrusted Data
+   Finding ID: 3a136f09-d116-4ead-ade9-8371b9f11ab6
+   Path: .venv/lib/python3.12/site-packages/trio/_tools/mypy_annotate.py, line 103
+   Info: Unsanitized input from a command line argument flows into pickle.load, where it is used to deserialize an object. This may result in an Unsafe Deserialization vulnerability.
+
+ ✗ [MEDIUM] Server Information Exposure
+   Finding ID: 62ee0228-f05b-4cfd-b94b-c4306320b2c4
+   Path: .venv/lib/python3.12/site-packages/flask/app.py, line 1224
+   Info: The stack trace from an exception flows into response_class and is leaked to the user. This may disclose sensitive server information to the attackers.
+
+ ✗ [MEDIUM] Arbitrary File Write via Archive Extraction (Tar Slip)
+   Finding ID: 7f65b004-c0e7-4829-95f1-06680277b32d
+   Path: .venv/lib/python3.12/site-packages/pip/_internal/utils/unpacking.py, line 245
+   Info: Unsanitized input from an opened tar file flows into extractall, where it is used to extract files from a tar archive. This may result files outside destination directory to be overwritten, resulting in an arbitrary file write.
+
+ ✗ [MEDIUM] Code Injection
+   Finding ID: a6b2f0d1-f4aa-40b9-9981-3908b94e880f
+   Path: .venv/lib/python3.12/site-packages/flask/cli.py, line 1031
+   Info: Unsanitized input from an environment variable flows into eval, where it is executed as Python code. This may result in a Code Injection vulnerability.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: bd57a9d7-51bd-4108-9779-a7e07b9d5c63
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/_html_base.py, line 475
+   Info: xml.etree.ElementTree.fromstring is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Arbitrary File Write via Archive Extraction (Tar Slip)
+   Finding ID: b19c8a88-a973-475c-8692-5cb6a72763b8
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/distlib/util.py, line 1285
+   Info: Unsanitized input from an opened tar file flows into extractall, where it is used to extract files from a tar archive. This may result files outside destination directory to be overwritten, resulting in an arbitrary file write.
+
+ ✗ [MEDIUM] Insecure Xml Parser (Python < 3.11)
+   Finding ID: 2a1aae75-1a0f-4aa1-9022-f49d38fecd8a
+   Path: .venv/lib/python3.12/site-packages/docutils/writers/odf_odt/__init__.py, line 718
+   Info: xml.dom.minidom.parseString is vulnerable to XXE and DDOS in versions of python <= 3.10. If using python runtime 3.10 or older, consider upgrading python versions, or see https://docs.python.org/3.10/library/xml.html#xml-vulnerabilities for mitigations. Python versions 3.11 and onwards do not have this issue.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: 2d5d5723-62e7-434a-81fc-708df3c849af
+   Path: .venv/lib/python3.12/site-packages/pip/_internal/cli/main_parser.py, line 92
+   Info: Unsanitized input from an environment variable flows into subprocess.run, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Regular Expression Denial of Service (ReDoS)
+   Finding ID: 4103d2e3-fb42-4355-94f9-0c2969c69283
+   Path: .venv/lib/python3.12/site-packages/coverage/config.py, line 629
+   Info: Unsanitized user input from an environment variable flows into re.compile, where it is used to build a regular expression. This may result in a Regular expression Denial of Service attack (reDOS).
+
+ ✗ [MEDIUM] Regular Expression Denial of Service (ReDoS)
+   Finding ID: 6fa891d9-5456-4391-9de5-a9d6754a92c9
+   Path: .venv/lib/python3.12/site-packages/isort/main.py, line 1175
+   Info: Unsanitized user input from a command line argument flows into re.compile, where it is used to build a regular expression. This may result in a Regular expression Denial of Service attack (reDOS).
+
+ ✗ [MEDIUM] Regular Expression Denial of Service (ReDoS)
+   Finding ID: 9aba5e51-d3d4-4a97-8ffe-98deef8058bf
+   Path: .venv/lib/python3.12/site-packages/sphinx/ext/apidoc/_cli.py, line 263
+   Info: Unsanitized user input from a command line argument flows into re.compile, where it is used to build a regular expression. This may result in a Regular expression Denial of Service attack (reDOS).
+
+ ✗ [MEDIUM] Code Injection
+   Finding ID: accf0ac7-e21c-4c0e-a419-c720b194a800
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py, line 70
+   Info: Unsanitized input from an environment variable flows into importlib.import_module, where it is executed as Python code. This may result in a Code Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: b7e455a4-af1f-47b9-807e-e5ff59532e85
+   Path: .venv/lib/python3.12/site-packages/werkzeug/_reloader.py, line 275
+   Info: Unsanitized input from a command line argument flows into subprocess.call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: 2fe1622b-5057-49a7-8ef6-588556441585
+   Path: .venv/lib/python3.12/site-packages/pip/_internal/commands/configuration.py, line 247
+   Info: Unsanitized input from an environment variable flows into subprocess.check_call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: 45e6f49a-d0da-456d-b2fb-0c8979d7f8d5
+   Path: .venv/lib/python3.12/site-packages/click/_termui_impl.py, line 510
+   Info: Unsanitized input from an environment variable flows into subprocess.Popen, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: 0e1dde8f-2a75-4803-aa7b-cf81fb58b75b
+   Path: .venv/lib/python3.12/site-packages/click/_termui_impl.py, line 686
+   Info: Unsanitized input from an environment variable flows into subprocess.Popen, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: 30acc51f-4af5-4ced-8938-5532959f894f
+   Path: .venv/lib/python3.12/site-packages/click/_termui_impl.py, line 604
+   Info: Unsanitized input from an environment variable flows into subprocess.call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: 239f9c2a-d5e8-4492-ac3a-0114cf919e92
+   Path: .venv/lib/python3.12/site-packages/sphinx/cmd/make_mode.py, line 117
+   Info: Unsanitized input from an environment variable flows into subprocess.call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: c13b32cf-573e-4582-98cd-b0322206e8fe
+   Path: .venv/lib/python3.12/site-packages/sphinx/cmd/make_mode.py, line 132
+   Info: Unsanitized input from an environment variable flows into subprocess.call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: 99c846d6-c250-441a-972c-be37e919dffd
+   Path: .venv/lib/python3.12/site-packages/sphinx/cmd/make_mode.py, line 145
+   Info: Unsanitized input from an environment variable flows into subprocess.call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: e826547d-c0af-4bf1-bd68-61a8b176b104
+   Path: .venv/lib/python3.12/site-packages/sphinx/cmd/make_mode.py, line 162
+   Info: Unsanitized input from an environment variable flows into subprocess.call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [MEDIUM] Command Injection
+   Finding ID: b3361f21-9a57-4695-b35f-1c40de944ddf
+   Path: .venv/lib/python3.12/site-packages/sphinx/cmd/make_mode.py, line 177
+   Info: Unsanitized input from an environment variable flows into subprocess.call, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [HIGH] Selection of Less-Secure Algorithm During Negotiation (SSL instead of TLS)
+   Finding ID: 9a45eaf0-df6b-4414-bc56-e27202994b51
+   Path: .venv/lib/python3.12/site-packages/pip/_vendor/distlib/util.py, line 1469
+   Info: Consider using TLS instead of SSL (ssl.PROTOCOL_SSLv23 used in ssl.SSLContext).
+
+
+
+╭────────────────────────────────────────────────────────────────────────────────────────╮
+│ Test Summary                                                                           │
+│                                                                                        │
+│   Organization:      rfatimaalvi                                                       │
+│   Test type:         Static code analysis                                              │
+│   Project path:      /Users/ridafatimaalvi/Documents/jhu_software_concepts/module_5    │
+│                                                                                        │
+│   Total issues:   112                                                                  │
+│   Ignored issues: 0 [ 0 HIGH  0 MEDIUM  0 LOW ]                                        │
+│   Open issues:    112 [ 1 HIGH  36 MEDIUM  75 LOW ]                                    │
+╰────────────────────────────────────────────────────────────────────────────────────────╯
+    
+💡 Tip
+
+   To view ignored issues, use the --include-ignores option.
+                                                            
+

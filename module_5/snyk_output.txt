@@ -1,0 +1,19 @@
+
+Testing /Users/ridafatimaalvi/Documents/jhu_software_concepts/module_5...
+
+Organization:      rfatimaalvi
+Package manager:   pip
+Target file:       requirements.txt
+Project name:      module_5
+Open source:       no
+Project path:      /Users/ridafatimaalvi/Documents/jhu_software_concepts/module_5
+Licenses:          enabled
+
+✔ Tested 59 dependencies for known issues, no vulnerable paths found.
+
+Next steps:
+- Run `snyk monitor` to be notified about new related vulnerabilities.
+- Run `snyk test` as part of your CI/test.
+
+
+SNYK_EXIT_CODE=0
